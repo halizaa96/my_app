@@ -1,0 +1,31 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.description %></p>
+
+<small>
+Oleh <%= @article.user.full_name %>
+pada <%= @article.created_at.to_s(:short) %>
+</small>
+
+<div>
+<%= form_tag save_comment_path(article_id: @article.id) do %>
+    <span> Tambahkan Komentar </span>
+    </br>
+    <%= text_area_tag 'comment', '' %>
+    <br/>
+    <%= submit_tag 'kirim' %>
+
+<%-end %>
+</div>
+
+<div>
+<ul>
+    <%- for comment in @article.comments do %>
+    <li>
+        <span><%= comment.comment %></span> 
+        <small>
+        Pada <%= comment.created_at.to_s(:short) %>
+        </small>
+    </li>
+    <%- end %>
+</ul>
+</div>
