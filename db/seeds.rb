@@ -10,6 +10,10 @@ data = {full_name: 'Budi Gunawan', email: 'budi@gmail.com', password: '1234abc'}
 user = User.create(data)
 
 user = User.first
-articles ={
-    {title: 'Title article 1', description: 'description article 1'}
-}
+articles = [
+    {title: 'Title article 1', description: 'description article 1', user: user},
+    {title: 'Title article 2', description: 'description article 2', user: user},
+    {title: 'Title article 3', description: 'description article 3', user: user}
+]
+
+user = Article.create(articles)
